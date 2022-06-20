@@ -3,6 +3,7 @@ import 'package:flutter_tutorial/models/item_model.dart';
 import 'package:flutter_tutorial/my_carousel.dart';
 import 'package:flutter_tutorial/my_carousel2item.dart';
 import 'package:flutter_tutorial/my_listview.dart';
+import 'package:flutter_tutorial/my_pageview.dart';
 import 'package:flutter_tutorial/my_scrollview.dart';
 
 void main() {
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
               title: 'ScrollView',
             ),
         '/custom_carousel': (context) =>
-            const CustomCarousel(title: 'Custom Carousel')
+            const CustomCarousel(title: 'Custom Carousel'),
+            '/pageview':(context)=>MyPageView(title: 'Pageview',)
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -190,7 +192,8 @@ class _MyHomePageState extends State<MyHomePage> {
             MenuItem(
               text: 'Custom Carousel',
               press: '/custom_carousel',
-            )
+            ),
+            MenuItem(text: 'PageView',press: '/pageview',)
           ],
         ));
   }
