@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/my_carousel.dart';
 import 'package:flutter_tutorial/my_carousel2item.dart';
+import 'package:flutter_tutorial/my_carousel_indicator.dart';
+import 'package:flutter_tutorial/my_clippath.dart';
 import 'package:flutter_tutorial/my_custom_carousel.dart';
 import 'package:flutter_tutorial/my_custom_pageview.dart';
 import 'package:flutter_tutorial/my_listview.dart';
+import 'package:flutter_tutorial/my_navbottom.dart';
 import 'package:flutter_tutorial/my_pageview.dart';
 import 'package:flutter_tutorial/my_percent_indicator.dart';
 import 'package:flutter_tutorial/my_scrollview.dart';
+import 'package:flutter_tutorial/my_stepper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +42,18 @@ class MyApp extends StatelessWidget {
             const MyCustomPageview(title: 'Custom Pageview'),
         '/percent_indicator': (context) =>
             const MyPercentIndicator(title: 'Percent Indicator'),
+        '/carousel_indicator': (context) => const MyCarouselIndicator(
+              title: 'Carousel Indicator',
+            ),
+        '/bottom_nav': (context) => const MyNavBottom(
+              title: 'Bottom Navigation',
+            ),
+        '/clippath': (context) => const MyClipPath(
+              title: 'Clip Path',
+            ),
+        '/stepper': (context) => const MyStepper(
+              title: 'Stepper',
+            ),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -66,6 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: ListView(
+          reverse: true,
           padding: const EdgeInsets.all(20),
           children: const [
             MenuItem(
@@ -103,6 +120,22 @@ class _MyHomePageState extends State<MyHomePage> {
             MenuItem(
               text: 'Percent Indicator',
               press: '/percent_indicator',
+            ),
+            MenuItem(
+              text: 'Carousel Indicator',
+              press: '/carousel_indicator',
+            ),
+            MenuItem(
+              text: 'Bottom Navigation',
+              press: '/bottom_nav',
+            ),
+            MenuItem(
+              text: 'ClipPath',
+              press: '/clippath',
+            ),
+            MenuItem(
+              text: 'Stepper',
+              press: '/stepper',
             )
           ],
         ));
