@@ -6,23 +6,23 @@ class ItemModel {
 
 List<ItemModel> dataItem = [
   ItemModel(
-      image: 'assets/images/banana.jpg', title: 'Title', subtitle: 'subtitle'),
+      image: 'assets/images/banana.jpg', title: 'Banana', subtitle: 'subtitle'),
   ItemModel(
       image: 'assets/images/fresh-fruits-isolated-white-background.jpg',
-      title: 'Title',
+      title: 'FreshFruit',
       subtitle: 'subtitle'),
   ItemModel(
-      image: 'assets/images/fruits.jpg', title: 'Title', subtitle: 'subtitle'),
+      image: 'assets/images/fruits.jpg', title: 'Fruits', subtitle: 'subtitle'),
   ItemModel(
-      image: 'assets/images/grape.jpg', title: 'Title', subtitle: 'subtitle'),
+      image: 'assets/images/grape.jpg', title: 'Grape', subtitle: 'subtitle'),
   ItemModel(
       image: 'assets/images/honeydew.jpg',
-      title: 'Title',
+      title: 'Honeydew',
       subtitle: 'subtitle'),
   ItemModel(
-      image: 'assets/images/orange.jpg', title: 'Title', subtitle: 'subtitle'),
+      image: 'assets/images/orange.jpg', title: 'Orange', subtitle: 'subtitle'),
   ItemModel(
       image: 'assets/images/vegetable.jpg',
-      title: 'Title',
+      title: 'Vegetable',
       subtitle: 'subtitle'),
 ];

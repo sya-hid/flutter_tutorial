@@ -5,14 +5,18 @@ import 'package:flutter_tutorial/my_carousel_indicator.dart';
 import 'package:flutter_tutorial/my_clippath.dart';
 import 'package:flutter_tutorial/my_custom_carousel.dart';
 import 'package:flutter_tutorial/my_custom_pageview.dart';
+import 'package:flutter_tutorial/my_dialog.dart';
 import 'package:flutter_tutorial/my_listview.dart';
 import 'package:flutter_tutorial/my_navbottom.dart';
 import 'package:flutter_tutorial/my_pageview.dart';
 import 'package:flutter_tutorial/my_percent_indicator.dart';
+import 'package:flutter_tutorial/my_reorder_listview.dart';
 import 'package:flutter_tutorial/my_scrollview.dart';
-import 'package:flutter_tutorial/my_stepper.dart';
+import 'package:flutter_tutorial/my_sqflite.dart';
+import 'package:flutter_tutorial/my_staggered_gridview.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -40,6 +44,8 @@ class MyApp extends StatelessWidget {
         '/pageview': (context) => const MyPageView(title: 'Pageview'),
         '/custom_pageview': (context) =>
             const MyCustomPageview(title: 'Custom Pageview'),
+        '/staggered_gridview': (context) =>
+            const MyStaggeredGridview(title: 'Staggered Gridview'),
         '/percent_indicator': (context) =>
             const MyPercentIndicator(title: 'Percent Indicator'),
         '/carousel_indicator': (context) => const MyCarouselIndicator(
@@ -51,8 +57,14 @@ class MyApp extends StatelessWidget {
         '/clippath': (context) => const MyClipPath(
               title: 'Clip Path',
             ),
-        '/stepper': (context) => const MyStepper(
-              title: 'Stepper',
+        '/dialog': (context) => const MyDialog(
+              title: 'Dialog',
+            ),
+        '/reorder_listview': (context) => const MyReorderList(
+              title: 'Reorder Listview',
+            ),
+        '/sqflite': (context) => const MySqflite(
+              title: 'Sqflite',
             ),
       },
       theme: ThemeData(
@@ -136,8 +148,67 @@ class _MyHomePageState extends State<MyHomePage> {
             MenuItem(
               text: 'Stepper',
               press: '/stepper',
-            )
+            ),
+            MenuItem(
+              text: 'Dialog',
+              press: '/dialog',
+            ),
+            MenuItem(
+              text: 'Reorder Listview',
+              press: '/reorder_listview',
+            ),
+            MenuItem(
+              text: 'Sqflite',
+              press: '/sqflite',
+            ),
           ],
         ));
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  final String? text;
+  final String? press;
+  const MenuItem({
+    Key? key,
+    this.text,
+    this.press,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, press!),
+      child: Container(
+        margin: const EdgeInsets.only(top: 15),
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  offset: const Offset(3, 3),
+                  blurRadius: 5,
+                  spreadRadius: 3),
+            ]),
+        child: Row(
+          children: [
+            Text(
+              text!,
+              style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+            const Spacer(),
+            const Icon(
+              Icons.arrow_forward_ios,
+              size: 20,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
