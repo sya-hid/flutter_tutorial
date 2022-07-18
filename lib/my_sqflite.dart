@@ -107,39 +107,37 @@ class _MySqfliteState extends State<MySqflite> {
                       ? const Center(
                           child: Text('Data Empty'),
                         )
-                      : Expanded(
-                          child: ListView(
-                            children: snapshot.data!.map((e) {
-                              return Card(
-                                color: e.id == selectedId
-                                    ? Colors.black38
-                                    : Colors.white,
-                                child: ListTile(
-                                  trailing: GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          DatabaseHelper.instance
-                                              .deleteFruit(e.id!);
-                                        });
-                                      },
-                                      child: const Icon(Icons.delete)),
-                                  textColor: e.id == selectedId
-                                      ? Colors.white
-                                      : Colors.black,
-                                  onTap: () {
-                                    setState(() {
-                                      selectedId = e.id;
-                                      nameController.text = e.name!;
-                                      priceController.text = e.price.toString();
-                                      dialog(context);
-                                    });
-                                  },
-                                  title: Text(e.name!),
-                                  subtitle: Text(e.price!.toString()),
-                                ),
-                              );
-                            }).toList(),
-                          ),
+                      : ListView(
+                          children: snapshot.data!.map((e) {
+                            return Card(
+                              color: e.id == selectedId
+                                  ? Colors.black38
+                                  : Colors.white,
+                              child: ListTile(
+                                trailing: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        DatabaseHelper.instance
+                                            .deleteFruit(e.id!);
+                                      });
+                                    },
+                                    child: const Icon(Icons.delete)),
+                                textColor: e.id == selectedId
+                                    ? Colors.white
+                                    : Colors.black,
+                                onTap: () {
+                                  setState(() {
+                                    selectedId = e.id;
+                                    nameController.text = e.name!;
+                                    priceController.text = e.price.toString();
+                                    dialog(context);
+                                  });
+                                },
+                                title: Text(e.name!),
+                                subtitle: Text(e.price!.toString()),
+                              ),
+                            );
+                          }).toList(),
                         );
                 })));
   }

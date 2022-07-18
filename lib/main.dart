@@ -161,6 +161,10 @@ class _MyHomePageState extends State<MyHomePage> {
               text: 'Sqflite',
               press: '/sqflite',
             ),
+            MenuItem(
+              text: 'Tes',
+              press: '/sqflite',
+            )
           ],
         ));
   }
